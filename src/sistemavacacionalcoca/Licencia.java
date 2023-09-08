@@ -14,10 +14,16 @@ public class Licencia extends javax.swing.JFrame {
     /**
      * Creates new form Licencia
      */
+    PantallaBienvenida pbienvenida = new PantallaBienvenida();
+    String nom = "";
     public Licencia() {
         initComponents();
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
+        nom = pbienvenida.nombreUsuario;//acceso al atributo nombre de la ventana bienvenida
+        jChAcepto.setText("Yo "+nom+" Acepto");
+        
     }
 
     /**
@@ -49,10 +55,14 @@ public class Licencia extends javax.swing.JFrame {
         jTCondiciones.setText("Si alguno de tus contenidos (1) incumple estos términos, o bien las políticas \no los términos adicionales específicos de los servicios; (2) infringe la \nlegislación aplicable; o (3) podría dañar a nuestros usuarios, a terceros , nos reservamos \nel derecho de retirar parte o la totalidad de dicho contenido de acuerdo con la legislación\naplicable. Algunos ejemplos son: el contenido que facilita el tráfico de personas o el acoso,\nel contenido de carácter terrorista, y el contenido que infringe los \nderechos de propiedad intelectual de otro individuo.");
         jScrollPane1.setViewportView(jTCondiciones);
 
-        jChAcepto.setText("ACEPTO");
         jChAcepto.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jChAceptoStateChanged(evt);
+            }
+        });
+        jChAcepto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jChAceptoActionPerformed(evt);
             }
         });
 
@@ -88,17 +98,17 @@ public class Licencia extends javax.swing.JFrame {
                                 .addGap(20, 20, 20)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jChAcepto)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                                        .addComponent(jChAcepto, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(393, 393, 393))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jBContinuar)
                                         .addGap(18, 18, 18)
                                         .addComponent(jBNoAcepto)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(136, 136, 136)
                                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 32, Short.MAX_VALUE))
+                        .addGap(0, 83, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -122,9 +132,8 @@ public class Licencia extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jBContinuar)
                                     .addComponent(jBNoAcepto)))
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -132,15 +141,33 @@ public class Licencia extends javax.swing.JFrame {
 
     private void jChAceptoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jChAceptoStateChanged
         // TODO add your handling code here:
+        if (jChAcepto.isSelected()) {
+            jBContinuar.setEnabled(true);
+            jBNoAcepto.setEnabled(false);
+        }else{
+            jBContinuar.setEnabled(false);
+            jBNoAcepto.setEnabled(true);
+        }
     }//GEN-LAST:event_jChAceptoStateChanged
 
     private void jBContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBContinuarActionPerformed
         // TODO add your handling code here:
+        PantallaPrincipal pPrincipal = new PantallaPrincipal();
+        pPrincipal.setVisible(true);//hace visible la ventana principal
+        this.dispose();// cierra la ventana actual
     }//GEN-LAST:event_jBContinuarActionPerformed
 
     private void jBNoAceptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNoAceptoActionPerformed
         // TODO add your handling code here:
+        PantallaBienvenida pb = new PantallaBienvenida();
+        pb.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jBNoAceptoActionPerformed
+
+    private void jChAceptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jChAceptoActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jChAceptoActionPerformed
 
     /**
      * @param args the command line arguments

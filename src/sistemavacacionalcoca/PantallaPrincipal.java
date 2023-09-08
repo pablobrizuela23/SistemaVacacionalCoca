@@ -6,6 +6,7 @@
 package sistemavacacionalcoca;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,10 +17,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form PantallaPrincipal
      */
+    String nombreAdministrador="";
+    
     public PantallaPrincipal() {
         initComponents();
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         setResizable(false);
         getContentPane().setBackground(new Color(255,0,0));
+        PantallaBienvenida pb = new PantallaBienvenida();
+        nombreAdministrador = pb.nombreUsuario;
+        jLNomUsuario.setText("Bienvenido "+nombreAdministrador);
     }
 
     /**
@@ -30,28 +38,28 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLNomUsuario = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jTnombre = new javax.swing.JTextField();
+        jTapellido = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTResult = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jCbDepartamento = new javax.swing.JComboBox<>();
+        jCbAntiguedad = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMRojo = new javax.swing.JMenuItem();
+        jMNegro = new javax.swing.JMenuItem();
+        jMmorado = new javax.swing.JMenuItem();
+        jMNuevo = new javax.swing.JMenuItem();
+        jMsalir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        jMVacaciones = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pantalla Principal");
@@ -60,17 +68,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemavacacionalcoca/logo-coca.png"))); // NOI18N
         jLabel1.setText("jLabel1");
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Bienvenido");
+        jLNomUsuario.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLNomUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        jLNomUsuario.setText("Bienvenido");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Datos del trabajador para el calculo de vacaciones");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTResult.setColumns(20);
+        jTResult.setRows(5);
+        jScrollPane1.setViewportView(jTResult);
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Nombre");
@@ -84,47 +92,67 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Seleccione antiguedad");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCbDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--------------------------------------------------------", "ATENCION AL CLIENTE", "DEPARTAMENTO DE LOGISTICA", "DEPARTAMENTO DE GERENCIA" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCbAntiguedad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--------------------------------------------------------", "1 AÑO DE SERVICIO", "2 A 6 AÑOS DE SERVICIO", "7 AÑOS O MAS DE SERVICIO" }));
 
         jMenu1.setText("Opciones");
 
         jMenu3.setText("Color de fondo");
 
-        jMenuItem1.setText("Rojo");
-        jMenu3.add(jMenuItem1);
-
-        jMenuItem4.setText("Negro");
-        jMenu3.add(jMenuItem4);
-
-        jMenuItem5.setText("Morado");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        jMRojo.setText("Rojo");
+        jMRojo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                jMRojoActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem5);
+        jMenu3.add(jMRojo);
+
+        jMNegro.setText("Negro");
+        jMNegro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMNegroActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMNegro);
+
+        jMmorado.setText("Morado");
+        jMmorado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMmoradoActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMmorado);
 
         jMenu1.add(jMenu3);
 
-        jMenuItem2.setText("Nuevo");
-        jMenu1.add(jMenuItem2);
+        jMNuevo.setText("Nuevo");
+        jMNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMNuevoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMNuevo);
 
-        jMenuItem3.setText("Salir");
-        jMenu1.add(jMenuItem3);
+        jMsalir.setText("Salir");
+        jMsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMsalirActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMsalir);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Calcular");
 
-        jMenuItem6.setText("Vacaciones");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        jMVacaciones.setText("Vacaciones");
+        jMVacaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                jMVacacionesActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem6);
+        jMenu2.add(jMVacaciones);
 
         jMenuBar1.add(jMenu2);
 
@@ -140,25 +168,25 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
-                        .addComponent(jLabel2))
+                        .addComponent(jLNomUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(117, 117, 117)
                         .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                            .addComponent(jTnombre, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                             .addComponent(jLabel5)
                             .addComponent(jLabel4)
-                            .addComponent(jTextField2))
+                            .addComponent(jTapellido))
                         .addGap(77, 77, 77)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
                             .addComponent(jLabel6)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.LEADING, 0, 250, Short.MAX_VALUE)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(jCbAntiguedad, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jCbDepartamento, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -170,7 +198,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jLabel2)))
+                        .addComponent(jLNomUsuario)))
                 .addGap(61, 61, 61)
                 .addComponent(jLabel3)
                 .addGap(23, 23, 23)
@@ -179,16 +207,16 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCbAntiguedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(63, Short.MAX_VALUE))
@@ -197,13 +225,108 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void jMmoradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMmoradoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+        getContentPane().setBackground(new Color(51,0,51));
+    }//GEN-LAST:event_jMmoradoActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    private void jMVacacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMVacacionesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+        String nombre = jTnombre.getText();
+        String ap = jTapellido.getText();
+        String dep = (String) jCbDepartamento.getSelectedItem();
+        String anti = (String) jCbAntiguedad.getSelectedItem();
+        
+        if(nombre.equals("") || ap.equals("") || dep.equals("") || anti.equals("")){
+               
+                JOptionPane.showMessageDialog(null,"Debes de llenar todos los campos.");
+
+            } else {
+
+                if(dep.equalsIgnoreCase("ATENCION AL CLIENTE")){
+
+                                if(anti.equalsIgnoreCase("1 AÑO DE SERVICIO")){
+					jTResult.setText("\n   El trabajador " + nombre + " " + ap + " " + 
+                                                          "\n   quien labora en " + dep + " con " + anti + 
+                                                          "\n   recibe 6 días de vacaciones.");
+				}
+				if(anti.equalsIgnoreCase("2 A 6 AÑOS DE SERVICIO")){
+					jTResult.setText("\n   El trabajador " + nombre + " " + ap + " "  + 
+                                                          "\n   quien labora en " + dep + " con " + anti + 
+                                                          "\n   recibe 14 días de vacaciones.");
+				}
+				if(anti.equalsIgnoreCase("7 AÑOS O MAS DE SERVICIO")){
+					jTResult.setText("\n   El trabajador " + nombre + " " + ap + " "  + 
+                                                          "\n   quien labora en " + dep + " con " + anti + 
+                                                          "\n   recibe 20 días de vacaciones.");
+				}
+                     
+                }
+	        if(dep.equalsIgnoreCase("DEPARTAMENTO DE LOGISTICA")){
+
+				if(anti.equalsIgnoreCase("1 AÑO DE SERVICIO")){
+					jTResult.setText("\n   El trabajador " + nombre + " " + ap + " " + 
+                                                          "\n   quien labora en " + dep + " con " + anti + 
+                                                          "\n   recibe 6 días de vacaciones.");
+				}
+				if(anti.equalsIgnoreCase("2 A 6 AÑOS DE SERVICIO")){
+					jTResult.setText("\n   El trabajador " + nombre + " " + ap + " " + 
+                                                          "\n   quien labora en " + dep + " con " + anti + 
+                                                          
+                                                          "\n   recibe 15 días de vacaciones.");
+				}
+				if(anti.equalsIgnoreCase("7 AÑOS O MAS DE SERVICIO")){
+					jTResult.setText("\n   El trabajador " + nombre + " " + ap + " " + 
+                                                          "\n   quien labora en " + dep + " con " + anti + 
+                                                          "\n   recibe 22 días de vacaciones.");
+				}
+	    	}
+	    	if(dep.equalsIgnoreCase("DEPARTAMENTO DE GERENCIA")){
+
+				if(anti.equalsIgnoreCase("1 AÑO DE SERVICIO")){
+					jTResult.setText("\n   El trabajador " + nombre + " " + ap + " " + 
+                                                          "\n   quien labora en " + dep + " con " + anti +  
+                                                          "\n   recibe 10 días de vacaciones.");
+				}
+				if(anti.equalsIgnoreCase("2 A 6 AÑOS DE SERVICIO")){
+					jTResult.setText("\n   El trabajador " + nombre + " " + ap + " " + 
+                                                          "\n   quien labora en " + dep + " con " + anti + 
+                                                          "\n   recibe 20 días de vacaciones.");
+				}
+				if(anti.equalsIgnoreCase("7 AÑOS O MAS DE SERVICIO")){
+					jTResult.setText("\n   El trabajador " + nombre + " " + ap + " " + 
+                                                          "\n   quien labora en " + dep + " con " + anti + 
+                                                          "\n   recibe 30 días de vacaciones.");
+				}
+	    		}
+        }
+    }//GEN-LAST:event_jMVacacionesActionPerformed
+
+    private void jMRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMRojoActionPerformed
+        // TODO add your handling code here:
+        getContentPane().setBackground(new Color(255,0,0));
+    }//GEN-LAST:event_jMRojoActionPerformed
+
+    private void jMNegroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMNegroActionPerformed
+        // TODO add your handling code here:
+        getContentPane().setBackground(new Color(0,0,0));
+    }//GEN-LAST:event_jMNegroActionPerformed
+
+    private void jMNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMNuevoActionPerformed
+        // TODO add your handling code here:
+        jTnombre.setText("");
+        jTapellido.setText("");
+        jCbDepartamento.setSelectedIndex(0);
+        jCbAntiguedad.setSelectedIndex(0);
+        jTResult.setText("");
+    }//GEN-LAST:event_jMNuevoActionPerformed
+
+    private void jMsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMsalirActionPerformed
+        // TODO add your handling code here:
+        PantallaBienvenida pb = new PantallaBienvenida();
+        pb.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMsalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,28 +364,28 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jCbAntiguedad;
+    private javax.swing.JComboBox<String> jCbDepartamento;
+    private javax.swing.JLabel jLNomUsuario;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JMenuItem jMNegro;
+    private javax.swing.JMenuItem jMNuevo;
+    private javax.swing.JMenuItem jMRojo;
+    private javax.swing.JMenuItem jMVacaciones;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMmorado;
+    private javax.swing.JMenuItem jMsalir;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextArea jTResult;
+    private javax.swing.JTextField jTapellido;
+    private javax.swing.JTextField jTnombre;
     // End of variables declaration//GEN-END:variables
 }

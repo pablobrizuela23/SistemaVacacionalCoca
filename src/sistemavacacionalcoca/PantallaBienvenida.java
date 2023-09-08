@@ -7,6 +7,7 @@ package sistemavacacionalcoca;
 
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,8 +18,10 @@ public class PantallaBienvenida extends javax.swing.JFrame {
     /**
      * Creates new form PantallaBienvenida
      */
+    public static String nombreUsuario="";
     public PantallaBienvenida() {
         initComponents();
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         getContentPane().setBackground(new Color (255,0,0));
 //        setIconImage(new ImageIcon(getClass().getResource("Proyecto/images/icon.png")).getImage());
@@ -34,7 +37,7 @@ public class PantallaBienvenida extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTnombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jBIngresar = new javax.swing.JButton();
 
@@ -48,12 +51,12 @@ public class PantallaBienvenida extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Sistema de control vacacional");
 
-        jTextField1.setBackground(new java.awt.Color(224, 224, 224));
-        jTextField1.setFont(new java.awt.Font("Malgun Gothic", 0, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 0, 0));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTnombre.setBackground(new java.awt.Color(224, 224, 224));
+        jTnombre.setFont(new java.awt.Font("Malgun Gothic", 0, 18)); // NOI18N
+        jTnombre.setForeground(new java.awt.Color(255, 0, 0));
+        jTnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTnombreActionPerformed(evt);
             }
         });
 
@@ -86,7 +89,7 @@ public class PantallaBienvenida extends javax.swing.JFrame {
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField1)))
+                            .addComponent(jTnombre)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(120, 120, 120)
                         .addComponent(jLabel3))
@@ -105,7 +108,7 @@ public class PantallaBienvenida extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jBIngresar)
                 .addGap(89, 89, 89))
@@ -114,12 +117,22 @@ public class PantallaBienvenida extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTnombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTnombreActionPerformed
 
     private void jBIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBIngresarActionPerformed
         // TODO add your handling code here:
+        nombreUsuario = jTnombre.getText().trim();
+        
+        if (nombreUsuario.equals("")) {
+            JOptionPane.showMessageDialog(this, "debe llenar el campo");
+        }else{
+            Licencia lic = new Licencia();
+            lic.setVisible(true);
+            this.dispose();
+            
+        }
     }//GEN-LAST:event_jBIngresarActionPerformed
 
     /**
@@ -162,6 +175,6 @@ public class PantallaBienvenida extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTnombre;
     // End of variables declaration//GEN-END:variables
 }
