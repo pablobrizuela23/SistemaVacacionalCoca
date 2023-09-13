@@ -52,7 +52,7 @@ public class Licencia extends javax.swing.JFrame {
         jTCondiciones.setColumns(20);
         jTCondiciones.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         jTCondiciones.setRows(5);
-        jTCondiciones.setText("Si alguno de tus contenidos (1) incumple estos términos, o bien las políticas \no los términos adicionales específicos de los servicios; (2) infringe la \nlegislación aplicable; o (3) podría dañar a nuestros usuarios, a terceros , nos reservamos \nel derecho de retirar parte o la totalidad de dicho contenido de acuerdo con la legislación\naplicable. Algunos ejemplos son: el contenido que facilita el tráfico de personas o el acoso,\nel contenido de carácter terrorista, y el contenido que infringe los \nderechos de propiedad intelectual. probando merge");
+        jTCondiciones.setText("Si alguno de tus contenidos (1) incumple estos términos, o bien las políticas \no los términos adicionales específicos de los servicios; (2) infringe la \nlegislación aplicable; o (3) podría dañar a nuestros usuarios, a terceros , nos reservamos \nel derecho de retirar parte o la totalidad de dicho contenido de acuerdo con la legislación\naplicable. Algunos ejemplos son: el contenido que facilita el tráfico de personas o el acoso,\nel contenido de carácter terrorista, y el contenido que infringe los \nderechos de propiedad intelectual. probando merge!!!");
         jScrollPane1.setViewportView(jTCondiciones);
 
         jChAcepto.addChangeListener(new javax.swing.event.ChangeListener() {
