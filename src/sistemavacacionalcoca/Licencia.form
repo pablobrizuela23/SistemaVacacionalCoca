@@ -115,7 +115,7 @@
               <Font name="Arial Black" size="14" style="0"/>
             </Property>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Si alguno de tus contenidos (1) incumple estos t&#xe9;rminos, o bien las pol&#xed;ticas &#xa;o los t&#xe9;rminos adicionales espec&#xed;ficos de los servicios; (2) infringe la &#xa;legislaci&#xf3;n aplicable; o (3) podr&#xed;a da&#xf1;ar a nuestros usuarios, a terceros , nos reservamos &#xa;el derecho de retirar parte o la totalidad de dicho contenido de acuerdo con la legislaci&#xf3;n&#xa;aplicable. Algunos ejemplos son: el contenido que facilita el tr&#xe1;fico de personas o el acoso,&#xa;el contenido de car&#xe1;cter terrorista, y el contenido que infringe los &#xa;derechos de propiedad intelectual de otro individuo."/>
+            <Property name="text" type="java.lang.String" value="Si alguno de tus contenidos (1) incumple estos t&#xe9;rminos, o bien las pol&#xed;ticas &#xa;o los t&#xe9;rminos adicionales espec&#xed;ficos de los servicios; (2) infringe la &#xa;legislaci&#xf3;n aplicable; o (3) podr&#xed;a da&#xf1;ar a nuestros usuarios, a terceros , nos reservamos &#xa;el derecho de retirar parte o la totalidad de dicho contenido de acuerdo con la legislaci&#xf3;n&#xa;aplicable. Algunos ejemplos son: el contenido que facilita el tr&#xe1;fico de personas o el acoso,&#xa;el contenido de car&#xe1;cter terrorista, y el contenido que infringe los &#xa;derechos de propiedad intelectual."/>
           </Properties>
         </Component>
       </SubComponents>
